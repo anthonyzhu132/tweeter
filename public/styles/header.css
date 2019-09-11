@@ -1,0 +1,22 @@
+#profile {
+  height: 400px;
+  width: 100%;
+  display: block;
+  margin-top: 120px;
+  background-color: #d3cabb;
+}
+
+#profile div {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#profile img {
+  padding-top: 22px;
+  
+}
+
+#profile h2 {
+  margin: 0;
+}

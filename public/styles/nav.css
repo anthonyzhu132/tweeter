@@ -1,0 +1,12 @@
+nav{
+  position: fixed;
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  height: 100px;
+  color: #e8fdff;
+  z-index: 9999;
+  width: 100%;
+  padding: 0 20px;
+  top: 0;
+  height: 120px;
+}

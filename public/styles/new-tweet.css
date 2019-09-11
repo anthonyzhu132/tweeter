@@ -1,0 +1,35 @@
+.new-tweet {
+  padding: 30px;
+  display: none;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.new-tweet textarea {
+  width: 80%;
+  margin: 10px auto;
+  font-size: .8em;
+  border: none;
+  resize: none;
+  background-color: #f4f1ec;
+  border-bottom: 1px solid black;
+}
+
+.new-tweet h2 {
+  display: none;
+}
+
+.new-tweet .counter {
+  float: bottom;
+  font-weight: 300;
+  font-size: 0.8em;
+ }
+
+ .new-tweet #submit-button {
+   border: none;
+   color: #4056A1;
+   font-family: 'Bungee', cursive;
+   background-color: #f4f1ec;
+ }
