@@ -16,12 +16,16 @@
     <!-- App JS -->
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="scripts/slideDown.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <span>Tweeter</span>
+      <span id="logo">Tweeter</span>
+      <div>
+          <img id="down-arrow" src="images/rename.svg">
+      </div>
     </nav>
     <!-- Page-specific (main) content here -->
 
@@ -30,34 +34,23 @@
             <img src="/images/profile-hex.png"> 
         </div>
         <div>
-            <h2>Your Name</h2>
+            <h2>🍦Anthony Zhu🍦</h2>
         </div>
     </header>
 
     <main class="container">
-      <p>Lorem Ipsum is the single greatest threat. We are not - we are not keeping up with other websites. Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen. Does everybody know that pig named Lorem Ipsum? An ‘extremely credible source’ has called my office and told me that Barack Obama’s placeholder text is a fraud.</p>
-
+      <div>
+        <strong><p id="error-message">❌ Maximum Character Length Exceeded / Cannot Submit Empty Text Field! ❌</p></strong>
+      </div>
       <section class="new-tweet">
-          <h2>Compose Tweet</h2>
-          <form action="/tweets" method="POST">
-            <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <form id="tweet-form">
+            <textarea id="text-box" name="text" placeholder="What are you humming about?"></textarea>
             <input id="submit-button" type="submit" value="Tweet">
             <span class="counter">140</span>
           </form>
         </section>
         
         <section class="tweets-container">
-            <article class="tweet">
-              <header>
-                <img id="avatar" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png">
-                <h3>author</h3>
-                <h4>@MEEE</h4>
-              </header>
-              <p>This is my first tweeet.</p>
-              <footer>
-                <span class="date">posted x days ago</span>
-              </footer>
-            </article>
         </section>
 
     </main>

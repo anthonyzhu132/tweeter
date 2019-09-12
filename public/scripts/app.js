@@ -30,9 +30,16 @@ const data = [
 ];
 
 const renderTweets = (tweetArray) => {
+  $('.tweets-container').empty();
   tweetArray.forEach(data => {
     $('.tweets-container').append(createTweetElement(data));
   });
+};
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 };
 
 const createTweetElement = (data) => {
@@ -40,7 +47,7 @@ const createTweetElement = (data) => {
   const avatars = data.user.avatars;
   const handle = data.user.handle;
   const content = data.content.text;
-  const createdAt = Date.now();
+  const createdAt = Date.now(); 
 
   return `
   <article class="tweet">
@@ -49,7 +56,7 @@ const createTweetElement = (data) => {
     <h3>${name}</h3>
     <h4>${handle}</h4>
   </header>
-  <p>${content}</p>
+  <p>${escape(content)}</p>
   <footer>
     <span class="date">${createdAt}</span>
   </footer>
@@ -57,9 +64,41 @@ const createTweetElement = (data) => {
   `;
 };
 
-
-
-
 $(document).ready(function() {
-  renderTweets(data);
+
+  const form = $('#tweet-form');
+  form.on('submit', (evt) => {
+    evt.preventDefault();
+
+    const characterLength = $('#text-box').val().length;
+    console.log(characterLength);
+
+    let error = $('#error-message');
+    
+    if (characterLength > 140) {
+      error.css({"display":"block"});
+      return;
+    }
+
+    if (characterLength === 0) {
+      error.css({"display":"block"});
+      return;
+    }
+
+    $.ajax({
+      url: "/tweets",
+      type: "POST",
+      data: form.serialize()
+    })
+      .then(loadTweets);
+    $('#text-box').val('');
+  });
+
+  const loadTweets = function() {
+    $.ajax({ url: '/tweets' })
+      .then(tweets => {
+        renderTweets(tweets); // CALLING RENDERTWEETS TO LOOP THROUGH DATA THAT WAS GIVEN TO PRINT OUT ON THE PAGE. 
+      });
+  };
+  loadTweets();
 });

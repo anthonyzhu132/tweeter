@@ -1,5 +1,3 @@
-console.log("test outside of document ready");
-
 const maxChars = 140;
 
 $(document).ready(function() {

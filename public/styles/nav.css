@@ -10,3 +10,25 @@ nav{
   top: 0;
   height: 120px;
 }
+
+nav #down-arrow {
+  width: 40px;
+  height: 40px;
+  float: right;
+  position: relative;
+  margin-right: 30px;
+  margin-top: 10px;
+  animation-name: move-down;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-down {
+  0% {bottom: 0px}
+  50% {bottom: 5px}
+  100% {bottom: 0px} 
+}
+
+nav #logo {
+  color: #FFF;
+}

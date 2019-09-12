@@ -1,6 +1,7 @@
 article.tweet:hover{
   border: solid 4px black;
   opacity: 1;
+  transition: 0.2s opacity box-shadow;
   box-shadow: 10px 10px;
 }
 
@@ -44,6 +45,13 @@ h4 {
   border-radius: 10px;
   float: left;
 
+}
+
+div #error-message {
+  color: red;
+  text-align: center;
+  border: solid red;
+  display: none;
 }
 
 p {

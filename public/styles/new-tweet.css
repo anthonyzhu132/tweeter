@@ -2,7 +2,7 @@
   padding: 30px;
   display: none;
   font-size: 1.5rem;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   text-align: center;
 }
@@ -15,10 +15,6 @@
   resize: none;
   background-color: #f4f1ec;
   border-bottom: 1px solid black;
-}
-
-.new-tweet h2 {
-  display: none;
 }
 
 .new-tweet .counter {
