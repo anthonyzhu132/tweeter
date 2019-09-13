@@ -4,35 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+
+const dayPosted = timeStamp => {
+  let todayDate = new Date().getTime();
+  let timePost = (todayDate - Number(timeStamp)) / 1000 / 60 / 60 / 24;
+  return Math.floor(timePost);
+};
 
 const renderTweets = (tweetArray) => {
   $('.tweets-container').empty();
   tweetArray.forEach(data => {
-    $('.tweets-container').append(createTweetElement(data));
+    $('.tweets-container').prepend(createTweetElement(data));
   });
 };
 
@@ -47,8 +29,7 @@ const createTweetElement = (data) => {
   const avatars = data.user.avatars;
   const handle = data.user.handle;
   const content = data.content.text;
-  const createdAt = Date.now(); 
-
+  const createdAt = dayPosted(data.created_at);
   return `
   <article class="tweet">
   <header>
@@ -58,7 +39,7 @@ const createTweetElement = (data) => {
   </header>
   <p>${escape(content)}</p>
   <footer>
-    <span class="date">${createdAt}</span>
+    <span class="date">${createdAt} Days ago</span>
   </footer>
   </article>
   `;
@@ -71,8 +52,6 @@ $(document).ready(function() {
     evt.preventDefault();
 
     const characterLength = $('#text-box').val().length;
-    console.log(characterLength);
-
     let error = $('#error-message');
     
     if (characterLength > 140) {
@@ -92,12 +71,13 @@ $(document).ready(function() {
     })
       .then(loadTweets);
     $('#text-box').val('');
+
   });
 
   const loadTweets = function() {
     $.ajax({ url: '/tweets' })
       .then(tweets => {
-        renderTweets(tweets); // CALLING RENDERTWEETS TO LOOP THROUGH DATA THAT WAS GIVEN TO PRINT OUT ON THE PAGE. 
+        renderTweets(tweets); // CALLING RENDERTWEETS TO LOOP THROUGH DATA THAT WAS GIVEN TO PRINT OUT ON THE PAGE.
       });
   };
   loadTweets();
