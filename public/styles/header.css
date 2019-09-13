@@ -3,7 +3,8 @@
   width: 100%;
   display: block;
   margin-top: 120px;
-  background-color: #d3cabb;
+  border-radius: 25px;
+  background-color: #6096BA;
 }
 
 #profile div {
