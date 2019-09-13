@@ -3,10 +3,10 @@ $(() => {
     const form = $('.new-tweet');
     const textArea = $('textarea');
     if (form.css('display') === 'none') {
-      form.slideDown(100);
+      form.slideDown(200);
       textArea.focus();
     } else {
-      form.slideUp(100);
+      form.slideUp(200);
     }
   });
 });
