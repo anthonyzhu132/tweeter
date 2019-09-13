@@ -1,7 +1,7 @@
 nav{
   position: fixed;
   font-family: 'Bungee', cursive;
-  background-color: #4056A1;
+  background-color: #274C77;
   height: 100px;
   color: #e8fdff;
   z-index: 9999;
@@ -31,4 +31,7 @@ nav #down-arrow {
 
 nav #logo {
   color: #FFF;
+  font-size: 40px;
+  position: relative;
+  top: 30px;
 }
